@@ -1,5 +1,4 @@
-export default {
-  menuList: [
+export default  [
     {
       name: '首页',
       path:'/home',
@@ -29,4 +28,3 @@ export default {
       ]
     }
   ]
-}

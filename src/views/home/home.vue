@@ -1,7 +1,7 @@
 <template>
 <a-layout class="main">
   <a-layout-header class="header">
-    <div>123</div>
+    <div style="color: #fff">vue3.0-taste</div>
   </a-layout-header>
   <a-layout>
     <a-layout-sider width="200" style="background: #fff">
@@ -10,7 +10,7 @@
           <template v-slot:title>
             <span>{{item.name}}</span>
           </template>
-          <a-menu-item v-for="(i,index) in item.children" :key='index'>{{i.name}}</a-menu-item>
+          <a-menu-item v-for="(i,index) in item.children" :key='index' @click="()=>handleMenuChange(i)">{{i.name}}</a-menu-item>
         </a-sub-menu>
       </a-menu>
     </a-layout-sider>
@@ -28,6 +28,7 @@
 
 <script>
 import menuList from '../../config/menuList'
+import { useRouter } from 'vue-router';
 export default {
   // ref：它用于声明简单的基础类型变量，如单个数字、boolean、字符串等等。
   // reactive：它用于对象引用类型的复杂变量。
@@ -40,6 +41,17 @@ export default {
       openKeys: ['sub1'],
       menus:menuList
     };
+  },
+  setup(){
+    const router = useRouter();
+    // const path = 
+    const handleMenuChange = (item) => {
+      console.log(123,router)
+      router.push(item.path);
+    }
+    return{
+      handleMenuChange
+    }
   }
 };
 </script>

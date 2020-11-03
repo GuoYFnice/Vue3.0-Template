@@ -8,7 +8,7 @@ export default createRouter({
   routes: [
     {
       path: '/',
-      component: () => import('../views/login/login.vue')
+      redirect: '/home'
     },
     {
       path: '/login',
@@ -16,7 +16,17 @@ export default createRouter({
     },
     {
       path: '/home',
-      component: () => import('../views/home/home.vue')
+      component: () => import('../views/home/home.vue'),
+      children:[
+        {
+          path: '/home/page1',
+          component: () => import('../views/cssPage/page1.vue')
+        },
+        {
+          path: '/home/page2',
+          component: () => import('../views/cssPage/page2.vue')
+        },
+      ]
     },
   ]
 })

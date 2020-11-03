@@ -5,11 +5,11 @@ export default  [
       children: [
         {
           name:'页面一',
-          path:'/home'
+          path:'/home/page1'
         },
         {
           name:'页面一',
-          path:'/home'
+          path:'/home/page2'
         }
       ]
     },
@@ -19,11 +19,11 @@ export default  [
       children: [
         {
           name:'test1',
-          path:'/home'
+          path:'/home/page1'
         },
         {
           name:'test2',
-          path:'/home'
+          path:'/home/page2'
         }
       ]
     }

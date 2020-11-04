@@ -28,10 +28,27 @@
 
 <script>
 import menuList from '../../config/menuList'
+import { reactive, toRefs } from 'vue'
 import { useRouter } from 'vue-router';
 export default {
   // ref：它用于声明简单的基础类型变量，如单个数字、boolean、字符串等等。
   // reactive：它用于对象引用类型的复杂变量。
+  // 使用解构的两个 property 的响应性都会丢失。
+  // 示例
+  // 如果直接使用let { author, title } = book
+
+  // const book = reactive({
+  //   author: 'Vue Team',
+  //   year: '2020',
+  //   title: 'Vue 3 Guide',
+  //   description: 'You are reading this book right now ;)',
+  //   price: 'free'
+  // })
+
+  // let { author, title } = toRefs(book)
+
+  // title.value = 'Vue 3 Detailed Guide' // 我们需要使用 .value 作为标题，现在是 ref
+  // console.log(book.title) // 'Vue 3 Detailed Guide'
   components: {},
   data() {
     return {

@@ -20,11 +20,11 @@ export default createRouter({
       children:[
         {
           path: '/home/page1',
-          component: () => import('../views/cssPage/page1.vue')
+          component: () => import('../views/page/page1.vue')
         },
         {
           path: '/home/page2',
-          component: () => import('../views/cssPage/page2.vue')
+          component: () => import('../views/page/page2.vue')
         },
       ]
     },

@@ -14,17 +14,7 @@ export default  [
       ]
     },
     {
-      name: 'CSS学习',
+      name: '首页2',
       path:'/home',
-      children: [
-        {
-          name:'test1',
-          path:'/home/page1'
-        },
-        {
-          name:'test2',
-          path:'/home/page2'
-        }
-      ]
     }
   ]

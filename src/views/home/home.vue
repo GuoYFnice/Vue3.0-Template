@@ -59,15 +59,9 @@ export default {
       menus:menuList
     };
   },
-  setup(){
-    const router = useRouter();
-    // const path = 
-    const handleMenuChange = (item) => {
-      console.log(123,router)
-      router.push(item.path);
-    }
-    return{
-      handleMenuChange
+  methods:{
+     handleMenuChange(item) {
+      this.$router.push(item.path);
     }
   }
 };

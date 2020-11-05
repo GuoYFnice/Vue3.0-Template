@@ -7,3 +7,9 @@ export default {
   name: 'App'
 }
 </script>
+
+<style>
+html {
+  /* filter: invert(1) hue-rotate(180deg); */
+}
+</style>

@@ -1,11 +1,12 @@
 <template>
 <a-layout class="main">
   <a-layout-header class="header">
-    <div style="color: #fff">vue3.0-taste</div>
+    <h2 style="color: #000">vue3.0-taste</h2>
+    <a-switch v-model:checked="checked"/>
   </a-layout-header>
   <a-layout>
-    <a-layout-sider width="200" style="background: #fff">
-      <a-menu mode="inline" v-model:selectedKeys="selectedKeys2" v-model:openKeys="openKeys" :style="{ height: '100%', borderRight: 0 }">
+    <a-layout-sider width="200">
+      <a-menu mode="inline" :style="{ height: '100%', borderRight: 0 }">
         <a-sub-menu v-for="item in menus" :key='item.name'>
           <template v-slot:title>
             <span>{{item.name}}</span>
@@ -14,7 +15,7 @@
         </a-sub-menu>
       </a-menu>
     </a-layout-sider>
-    <a-layout style="padding: 0 24px 24px">
+    <a-layout style="padding: 0 24px 24px; background: #e4e9ed">
       <a-breadcrumb style="margin: 16px 0">
         <a-breadcrumb-item>Home</a-breadcrumb-item>
       </a-breadcrumb>
@@ -52,11 +53,8 @@ export default {
   components: {},
   data() {
     return {
-      selectedKeys1: ['2'],
-      selectedKeys2: ['1'],
-      collapsed: false,
-      openKeys: ['sub1'],
-      menus:menuList
+      menus:menuList,
+      checked: true,
     };
   },
   methods:{
@@ -67,8 +65,11 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .main {
   height: 100vh;
+  .header {
+    background: #bdc3c7;
+  }
 }
 </style>

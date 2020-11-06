@@ -9,7 +9,8 @@ export default {
 </script>
 
 <style>
-html {
-  /* filter: invert(1) hue-rotate(180deg); */
-}
+/* 使用过滤可以做出样式切换 */
+/* html {
+  filter: invert(1) hue-rotate(180deg);
+} */
 </style>

@@ -1,10 +1,9 @@
-import { reactive } from "vue"
-
+import { ref } from 'vue'
 export default function localStorage(type, key, value){
-  const value = ref({})
-  const storageMap = reactive({
+  const count = ref({})
+  const storageMap = {
     'query':()=>{
-      value.value = JSON.parse(localStorage.getItem(key))
+      count = JSON.parse(localStorage.getItem(key))?.null
     },
     'delete':()=>{
       localStorage.removeItem(key)
@@ -12,9 +11,10 @@ export default function localStorage(type, key, value){
     'add':()=>{
       localStorage.setItem(key,JSON.stringify(value))
     }
-  })
+  }
   storageMap[type]
   return{
-    value
+    value,
+    storageMap
   }
 }

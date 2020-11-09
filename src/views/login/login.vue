@@ -37,6 +37,7 @@
 <script>
 import { ref, reactive } from "vue";
 import handleLogin from "../../composables/handleLogin.js";
+import localStorage from "../../composables/localStorage.js";
 import { message } from 'ant-design-vue';
 export default {
   setup() {

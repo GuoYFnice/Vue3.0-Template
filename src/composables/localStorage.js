@@ -1,7 +1,20 @@
-export default function localStorage(key, value){
-  if(value){
-    localStorage.setItem(key,JSON.stringify(value))
-  }else{
-    localStorage.removeItem(key)
+import { reactive } from "vue"
+
+export default function localStorage(type, key, value){
+  const value = ref({})
+  const storageMap = reactive({
+    'query':()=>{
+      value.value = JSON.parse(localStorage.getItem(key))
+    },
+    'delete':()=>{
+      localStorage.removeItem(key)
+    },
+    'add':()=>{
+      localStorage.setItem(key,JSON.stringify(value))
+    }
+  })
+  storageMap[type]
+  return{
+    value
   }
 }

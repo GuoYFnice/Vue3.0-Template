@@ -66,6 +66,7 @@ export default {
 <style scoped lang="scss">
 .loginBox{
   width: 300px;
+  
   margin: auto;
   text-align: center;
   border: 1px solid #ccc;

@@ -4,7 +4,7 @@ export default function localStorage(type, key, value){
   const count = ref({})
   const storageMap = {
     'query':()=>{
-      count = JSON.parse(localStorage.getItem(key))?.null
+      count = JSON.parse(localStorage.getItem(key)) || null
     },
     'delete':()=>{
       localStorage.removeItem(key)

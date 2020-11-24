@@ -1,11 +1,26 @@
 <template>
-  <div>page 1</div>
+  <div>
+    <loading v-if="loading"/>
+    <a @click="startLoading">123</a>
+  </div>
 </template>
 
 <script>
-import { ref, reactive } from "vue";
+import { ref, reactive, toRefs} from "vue";
+import Loading from "../../components/Loading.vue"
+import handleLoading from "../../composables/handleLoading.js"
 export default {
-  setup() {},
+  components: {
+    Loading
+  },
+  setup() {
+    const {loading, startLoading, endLoading} = handleLoading()
+    return {
+      loading,
+      startLoading,
+      endLoading
+    }
+  },
 };
 </script>
 

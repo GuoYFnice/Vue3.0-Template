@@ -16,7 +16,7 @@ export default {
   setup() {
     const {loading, startLoading, endLoading} = handleLoading()
     return {
-      loading,
+      ...toRefs(loading),
       startLoading,
       endLoading
     }

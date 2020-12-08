@@ -24,7 +24,7 @@ router.beforeEach((to, from, next) => {
 createApp(App).use(router).use(store).use(Antd).directive("rightClick", (el, binding) => {
   el.oncontextmenu = function (e) {
     const textArray = binding.value.text;
-    const handlerObj = binding.value.handler;
+    const handlerObj = binding.value.handle;
     // 事件处理数组
     const handlerArray = [];
     // 处理好的右键菜单
@@ -38,7 +38,7 @@ createApp(App).use(router).use(store).use(Antd).directive("rightClick", (el, bin
       // 右键菜单对象, 添加名称
       const menuObj = {
         text: textArray[i],
-        handler: handlerArray[i],
+        handle: handlerArray[i],
         id: i + 1
       };
       menuList.push(menuObj);

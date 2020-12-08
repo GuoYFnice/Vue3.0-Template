@@ -73,31 +73,19 @@ export default {
       checked: true,
       rightMenuObj: {
         text: [
-          "查看资料",
-          "复制用户id",
-          "移除该会话",
-          "在联系人中查看",
-          "在单聊窗口中打开",
-          "会话置顶",
+          "复制",
+          "粘贴",
+          "返回上一步",
         ],
-        handler: {
-          checkingData() {
-            console.log("查看资料点击事件");
+        handle: {
+          handleCopy() {
+            console.log("复制");
           },
-          copyId() {
-            console.log("复制用户id点击事件");
+          handlePaste() {
+            console.log("粘贴");
           },
-          removeItem() {
-            console.log("移除会话点击事件");
-          },
-          showContact() {
-            console.log("在联系人中查看");
-          },
-          showSingleChat() {
-            console.log("在单聊窗口中打开");
-          },
-          topConversation() {
-            console.log("会话置顶");
+          handleReturn() {
+            console.log("返回上一步");
           },
         },
       },

@@ -1,7 +1,6 @@
 <template>
   <div>
-    <loading v-if="loading"/>
-    <a @click="startLoading">123</a>
+    <Loading v-if="loading"/>
   </div>
 </template>
 
@@ -16,11 +15,18 @@ export default {
   setup() {
     const {loading, startLoading, endLoading} = handleLoading()
     return {
-      ...toRefs(loading),
+      loading,
       startLoading,
       endLoading
     }
   },
+  mounted(){
+    let _this = this
+    this.startLoading()
+    setTimeout(() => {
+      _this.endLoading()
+    },2000)
+  }
 };
 </script>
 

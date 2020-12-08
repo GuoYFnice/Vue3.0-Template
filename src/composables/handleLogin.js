@@ -4,7 +4,7 @@ export default function handleLogin(form){
   const login = () => {
     if(form.username == 'admin' && form.password == '123456'){
       result.value = true
-      localStorage.setItem('userInfo', form)
+      localStorage.setItem('userInfo', JSON.stringify(form))
     }else {
       result.value = false
     }

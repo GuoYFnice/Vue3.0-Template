@@ -8,13 +8,13 @@ export default  [
           path:'/home/page1'
         },
         {
-          name:'页面一',
+          name:'页面二',
           path:'/home/page2'
+        },
+        {
+          name:'cssPage',
+          path:'/home/cssPage'
         }
       ]
-    },
-    {
-      name: '首页2',
-      path:'/home',
     }
   ]

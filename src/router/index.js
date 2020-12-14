@@ -26,6 +26,10 @@ export default createRouter({
           path: '/home/page2',
           component: () => import('../views/page/page2.vue')
         },
+        {
+          path: '/home/cssPage',
+          component: () => import('../views/page/cssPage/index')
+        },
       ]
     },
   ]

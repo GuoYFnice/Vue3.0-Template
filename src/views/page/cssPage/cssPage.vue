@@ -28,8 +28,14 @@ export default {
       callback
     }
   },
-  created(){
-    handleDocumentEvent("mousemove",()=>{console.log('点击了')},true)
+  mounted(){
+    handleDocumentEvent("click",()=>this.handleEventChange('点击了'),true)
+    setTimeout(handleDocumentEvent("click",()=>this.handleEventChange('111点击了'),true),100000)
+  },
+  methods:{
+    handleEventChange(event){
+      console.log(event)
+    }
   }
 };
 </script>

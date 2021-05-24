@@ -29,7 +29,7 @@ interface Result {
   webSocketIns?: WebSocket;
 }
 
-export default function useWebsocket(url: string, options: Options): Result {
+export default function useWebsocket(url: string, options: Options) {
   const {
     reconnectLimit = 3,
     reconnectInterval = 3 * 1000,
@@ -97,7 +97,7 @@ export default function useWebsocket(url: string, options: Options): Result {
    * @param message
    */
   const sendMessage: WebSocket["send"] = (message) => {
-    if (this.readyState === ReadyState.Open) {
+    if (readyState.value === ReadyState.Open) {
       websocketRef.value?.send(message);
     } else {
       throw new Error("WebSocket disconnected");
@@ -111,7 +111,7 @@ export default function useWebsocket(url: string, options: Options): Result {
     connectWs();
   }
   /**
-   * disconnect websocket
+   * 断开websocket连接
    */
   const disconnect = () => {
     reconnectTimerOut && clearTimeout(reconnectTimerOut.value);
@@ -122,11 +122,11 @@ export default function useWebsocket(url: string, options: Options): Result {
 
   onMounted(() => {
     // 初始连接
-      this.connect();
+      connect();
   });
 
   onUnmounted(() => {
-      this.disconnect();
+      disconnect();
   });
 
   return {

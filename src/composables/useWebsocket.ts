@@ -20,14 +20,14 @@ interface Options {
   onError?: (event: WebSocketEventMap["error"]) => void;
 }
 
-interface Result {
-  latestMessage?: WebSocketEventMap["message"];
-  sendMessage?: WebSocket["send"];
-  disconnect?: () => void;
-  connect?: () => void;
-  readyState: ReadyState;
-  webSocketIns?: WebSocket;
-}
+// interface Result {
+//   latestMessage?: WebSocketEventMap["message"];
+//   sendMessage?: WebSocket["send"];
+//   disconnect?: () => void;
+//   connect?: () => void;
+//   readyState: ReadyState;
+//   webSocketIns?: WebSocket;
+// }
 
 export default function useWebsocket(url: string, options: Options) {
   const {

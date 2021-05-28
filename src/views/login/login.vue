@@ -1,16 +1,13 @@
 <template>
   <div class="loginBox">
     <h1>LOGIN</h1>
-    <a-form
-      :model="form"
-      @submit="login"
-    >
+    <a-form :model="form" @submit="login">
       <a-form-item>
         <input
           v-model="form.username"
           pattern="(^[a-zA-Z]{1}[a-zA-Z\s]{0,20}[a-zA-Z]{1}$)"
           placeholder="Username"
-          />
+        />
       </a-form-item>
       <a-form-item>
         <input
@@ -18,7 +15,7 @@
           pattern="^\d{1,}$"
           type="password"
           placeholder="Password"
-          />
+        />
       </a-form-item>
       <a-form-item>
         <a-button
@@ -35,38 +32,38 @@
 </template>
 
 <script>
-import { ref, reactive } from "vue";
-import handleLogin from "../../composables/handleLogin.js";
-import { message } from 'ant-design-vue';
+import { ref, reactive } from 'vue'
+import handleLogin from '../../composables/handleLogin.js'
+import { message } from 'ant-design-vue'
 export default {
   setup() {
     const form = reactive({
       username: '',
       password: '',
     })
-    const { result } = handleLogin(form);
+    const { result } = handleLogin(form)
     return {
       form,
       result,
-    };
+    }
   },
   methods: {
-    login(){
-      if(this.result){
-        message.success('login successful');
+    login() {
+      if (this.result) {
+        message.success('login successful')
         this.$router.push('/home')
-      }else{
-        message.warning('Incorrect username or password');
+      } else {
+        message.warning('Incorrect username or password')
       }
-    }
-  }
-};
+    },
+  },
+}
 </script>
 
 <style scoped lang="scss">
-.loginBox{
+.loginBox {
   width: 300px;
-  
+
   margin: auto;
   text-align: center;
   border: 1px solid #ccc;
@@ -84,7 +81,7 @@ export default {
     }
     // 作用于输入非法的表单节点
     &:invalid {
-        border-color: #f66;
+      border-color: #f66;
     }
     &:active {
       border: none;

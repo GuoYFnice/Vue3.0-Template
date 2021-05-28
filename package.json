@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
+    "serve": "vite",
     "build": "vite build"
   },
   "dependencies": {
@@ -13,8 +14,13 @@
   },
   "devDependencies": {
     "@vue/compiler-sfc": "^3.0.0-rc.1",
-    "sass": "^1.32.13",
+    "eslint": "^7.27.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.23.3",
+    "eslint-plugin-vue": "^7.9.0",
     "node-sass": "^5.0.0",
+    "sass": "^1.32.13",
     "sass-loader": "^10.0.5",
     "vite": "^1.0.0-rc.1"
   }

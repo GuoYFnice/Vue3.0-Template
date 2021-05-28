@@ -15,23 +15,23 @@
   </div>
 </template>
 <script>
-import { ref, reactive,computed ,toRefs} from "vue";
-import { useStore } from "vuex";
+import { ref, reactive, computed, toRefs } from 'vue'
+import { useStore } from 'vuex'
 export default {
-  name: "RightMenuDom",
+  name: 'RightMenuDom',
   setup() {
-    const store = useStore();
-    const rightMenuStatus = computed(() => store.state.rightMenu.status);
-    const rightMenuTop = computed(() => store.state.rightMenu.top);
-    const rightMenuLeft = computed(() => store.state.rightMenu.left);
-    const rightMenuList = computed(() => store.state.rightMenu.list);
+    const store = useStore()
+    const rightMenuStatus = computed(() => store.state.rightMenu.status)
+    const rightMenuTop = computed(() => store.state.rightMenu.top)
+    const rightMenuLeft = computed(() => store.state.rightMenu.left)
+    const rightMenuList = computed(() => store.state.rightMenu.list)
     return {
       rightMenuStatus,
       rightMenuTop,
       rightMenuLeft,
       rightMenuList,
-    };
+    }
   },
-};
+}
 </script>
-<style lang="scss" src="./style.scss" module/>
+<style lang="scss" src="./style.scss" module />

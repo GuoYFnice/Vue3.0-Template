@@ -4,7 +4,6 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import 'ant-design-vue/dist/antd.css';
-import './index.css'
 
 // 虚假的登录检测
 router.beforeEach((to, from, next) => {
@@ -16,7 +15,7 @@ router.beforeEach((to, from, next) => {
   next()
 });
 
-
+ 
 
 
 // vue3.0使用createApp创建建VUE实例

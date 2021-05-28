@@ -36,15 +36,15 @@
         </a-layout-content>
       </a-layout>
     </a-layout>
-    <right-menu-dom/>
+    <right-menu-dom />
   </a-layout>
 </template>
 
 <script>
-import menuList from "../../config/menuList";
-import RightMenuDom from "../../components/RightMenuDom";
-import { reactive, toRefs } from "vue";
-import { useRouter } from "vue-router";
+import menuList from '../../config/menuList'
+import RightMenuDom from '../../components/RightMenuDom'
+import { reactive, toRefs } from 'vue'
+import { useRouter } from 'vue-router'
 export default {
   // ref：它用于声明简单的基础类型变量，如单个数字、boolean、字符串等等。
   // reactive：它用于对象引用类型的复杂变量。
@@ -65,49 +65,45 @@ export default {
   // title.value = 'Vue 3 Detailed Guide' // 我们需要使用 .value 作为标题，现在是 ref
   // console.log(book.title) // 'Vue 3 Detailed Guide'
   components: {
-    RightMenuDom
+    RightMenuDom,
   },
   data() {
     return {
       menus: menuList,
       checked: true,
       rightMenuObj: {
-        text: [
-          "复制",
-          "粘贴",
-          "返回上一步",
-        ],
+        text: ['复制', '粘贴', '返回上一步'],
         handle: {
           handleCopy() {
-            console.log("复制");
+            console.log('复制')
           },
           handlePaste() {
-            console.log("粘贴");
+            console.log('粘贴')
           },
           handleReturn() {
-            console.log("返回上一步");
+            console.log('返回上一步')
           },
         },
       },
-    };
+    }
   },
   mounted() {
     // 监听全局点击事件
-    document.addEventListener("click", () => {
+    document.addEventListener('click', () => {
       // 隐藏右键菜单
-      this.$store.commit("updateRightMenuStatus", {
-        status: "none",
-        left: "0px",
-        top: "0px",
-      });
-    });
+      this.$store.commit('updateRightMenuStatus', {
+        status: 'none',
+        left: '0px',
+        top: '0px',
+      })
+    })
   },
   methods: {
     handleMenuChange(item) {
-      this.$router.push(item.path);
+      this.$router.push(item.path)
     },
   },
-};
+}
 </script>
 
 <style lang="scss">

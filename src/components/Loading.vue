@@ -8,9 +8,9 @@
 
 <script>
 export default {
-  name: "Loading",
+  name: 'Loading',
   setup() {},
-};
+}
 </script>
 
 <style scoped lang="scss">

@@ -1,13 +1,7 @@
 <template>
-  <a-button @click="add" type="primary">
-    点我加{{ count }}
-  </a-button>
-  <a-button @click="add2('a')" type="primary">
-    点我加a{{ state.a }}
-  </a-button>
-  <a-button @click="add2('b')" type="primary">
-    点我加b{{ state.b }}
-  </a-button>
+  <a-button @click="add" type="primary"> 点我加{{ count }} </a-button>
+  <a-button @click="add2('a')" type="primary"> 点我加a{{ state.a }} </a-button>
+  <a-button @click="add2('b')" type="primary"> 点我加b{{ state.b }} </a-button>
 </template>
 
 <script>
@@ -29,8 +23,8 @@ export default {
       state,
       count,
       add,
-      add2
+      add2,
     }
-  }
+  },
 }
 </script>

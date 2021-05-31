@@ -33,9 +33,15 @@
 
 <script>
 import { ref, reactive } from 'vue'
-import handleLogin from '../../composables/handleLogin.js'
-import { message } from 'ant-design-vue'
+import handleLogin from '/@/composables/handleLogin.js'
+import { message, Form, Button } from 'ant-design-vue'
+const { Item } = Form
 export default {
+  components: {
+    'a-form': Form,
+    'a-form-item': Item,
+    'a-button': Button,
+  },
   setup() {
     const form = reactive({
       username: '',
@@ -60,37 +66,5 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-.loginBox {
-  width: 300px;
-
-  margin: auto;
-  text-align: center;
-  border: 1px solid #ccc;
-  padding: 30px;
-  input {
-    width: 100%;
-    border: 1px solid #ccc;
-    border-left: 5px solid #ccc;
-    padding: 0 20px;
-    outline: none;
-    transition: all 300ms;
-    // 作用于输入合法的表单节点
-    &:valid {
-      border-color: #3c9;
-    }
-    // 作用于输入非法的表单节点
-    &:invalid {
-      border-color: #f66;
-    }
-    &:active {
-      border: none;
-    }
-  }
-  .loginBitton {
-    width: 100%;
-    background: #3c9;
-    color: #fff;
-  }
-}
+<style src='./index.module.scss'>
 </style>

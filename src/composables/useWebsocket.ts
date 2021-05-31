@@ -1,8 +1,8 @@
-import { ref ,onMounted, onUnmounted} from "vue";
- /**
-   *  websocket
-   * 
-   */
+import { ref, onMounted, onUnmounted } from 'vue'
+/**
+ *  websocket
+ *
+ */
 
 export enum ReadyState {
   Connecting = 0,
@@ -12,12 +12,12 @@ export enum ReadyState {
 }
 
 interface Options {
-  reconnectLimit?: number;
-  reconnectInterval?: number;
-  onOpen?: (event: WebSocketEventMap["open"]) => void;
-  onClose?: (event: WebSocketEventMap["close"]) => void;
-  onMessage?: (message: WebSocketEventMap["message"]) => void;
-  onError?: (event: WebSocketEventMap["error"]) => void;
+  reconnectLimit?: number
+  reconnectInterval?: number
+  onOpen?: (event: WebSocketEventMap['open']) => void
+  onClose?: (event: WebSocketEventMap['close']) => void
+  onMessage?: (message: WebSocketEventMap['message']) => void
+  onError?: (event: WebSocketEventMap['error']) => void
 }
 
 // interface Result {
@@ -37,58 +37,61 @@ export default function useWebsocket(url: string, options: Options) {
     onClose,
     onMessage,
     onError,
-  } = options;
-  const reconnectTimesRef = ref<number>(0);
-  const latestMessage = ref<WebSocketEventMap["message"]>();
-  const readyState = ref<ReadyState>(ReadyState.Closed);
-  const reconnectTimerOut = ref();
-  const websocketRef = ref();
+  } = options
+  const reconnectTimesRef = ref<number>(0)
+  const latestMessage = ref<WebSocketEventMap['message']>()
+  const readyState = ref<ReadyState>(ReadyState.Closed)
+  const reconnectTimerOut = ref()
+  const websocketRef = ref()
 
   /**
    * 重连
    */
   const reconnect = () => {
-    if (reconnectTimesRef.value < reconnectLimit && readyState.value !== ReadyState.Open) {
-      reconnectTimerOut && clearTimeout(reconnectTimerOut.value);
+    if (
+      reconnectTimesRef.value < reconnectLimit &&
+      readyState.value !== ReadyState.Open
+    ) {
+      reconnectTimerOut && clearTimeout(reconnectTimerOut.value)
       reconnectTimerOut.value = setTimeout(() => {
-        connectWs();
-        reconnectTimesRef.value++;
-      }, reconnectInterval);
+        connectWs()
+        reconnectTimesRef.value++
+      }, reconnectInterval)
     }
-  };
+  }
 
   const connectWs = () => {
-    reconnectTimerOut && clearTimeout(reconnectTimerOut.value);
+    reconnectTimerOut && clearTimeout(reconnectTimerOut.value)
 
     if (websocketRef.value) {
-      websocketRef.value.close();
+      websocketRef.value.close()
     }
 
     try {
-      websocketRef.value = new WebSocket(url);
+      websocketRef.value = new WebSocket(url)
       websocketRef.value.onerror = (event) => {
-        reconnect();
-        onError && onError(event);
-        readyState.value= websocketRef.value?.readyState || ReadyState.Closed
-      };
+        reconnect()
+        onError && onError(event)
+        readyState.value = websocketRef.value?.readyState || ReadyState.Closed
+      }
       websocketRef.value.onopen = (event) => {
-        onOpen && onOpen(event);
-        reconnectTimesRef.value = 0;
-        readyState.value= websocketRef.value?.readyState || ReadyState.Closed
-      };
+        onOpen && onOpen(event)
+        reconnectTimesRef.value = 0
+        readyState.value = websocketRef.value?.readyState || ReadyState.Closed
+      }
       websocketRef.value.onmessage = (
-        message: WebSocketEventMap["message"]
+        message: WebSocketEventMap['message']
       ) => {
-        onMessage && onMessage(message);
+        onMessage && onMessage(message)
         latestMessage.value = message
-      };
+      }
       websocketRef.value.onclose = (event) => {
-        reconnect();
-        onClose && onClose(event);
-        readyState.value= websocketRef.value?.readyState || ReadyState.Closed
-      };
+        reconnect()
+        onClose && onClose(event)
+        readyState.value = websocketRef.value?.readyState || ReadyState.Closed
+      }
     } catch (error) {
-      throw error;
+      throw error
     }
   }
 
@@ -96,38 +99,38 @@ export default function useWebsocket(url: string, options: Options) {
    * 发送消息
    * @param message
    */
-  const sendMessage: WebSocket["send"] = (message) => {
+  const sendMessage: WebSocket['send'] = (message) => {
     if (readyState.value === ReadyState.Open) {
-      websocketRef.value?.send(message);
+      websocketRef.value?.send(message)
     } else {
-      throw new Error("WebSocket disconnected");
+      throw new Error('WebSocket disconnected')
     }
   }
   /**
-     * 手动 connect
-     */
+   * 手动 connect
+   */
   const connect = () => {
-    reconnectTimesRef.value = 0;
-    connectWs();
+    reconnectTimesRef.value = 0
+    connectWs()
   }
   /**
    * 断开websocket连接
    */
   const disconnect = () => {
-    reconnectTimerOut && clearTimeout(reconnectTimerOut.value);
+    reconnectTimerOut && clearTimeout(reconnectTimerOut.value)
 
-    reconnectTimerOut.value = reconnectLimit;
-    websocketRef.value?.close();
+    reconnectTimerOut.value = reconnectLimit
+    websocketRef.value?.close()
   }
 
   onMounted(() => {
     // 初始连接
-      connect();
-  });
+    connect()
+  })
 
   onUnmounted(() => {
-      disconnect();
-  });
+    disconnect()
+  })
 
   return {
     latestMessage,
@@ -136,5 +139,5 @@ export default function useWebsocket(url: string, options: Options) {
     disconnect,
     readyState,
     webSocketIns: websocketRef,
-  };
+  }
 }

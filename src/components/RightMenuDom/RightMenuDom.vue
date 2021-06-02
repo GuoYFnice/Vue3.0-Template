@@ -16,15 +16,21 @@
 </template>
 <script>
 import { ref, reactive, computed, toRefs } from 'vue'
-import { useStore } from 'vuex'
+// import { useStore } from 'vuex'
+import { useRightMenuStoreWidthOut } from '/@/store/modules/RightMenuStore'
 export default {
   name: 'RightMenuDom',
   setup() {
-    const store = useStore()
-    const rightMenuStatus = computed(() => store.state.rightMenu.status)
-    const rightMenuTop = computed(() => store.state.rightMenu.top)
-    const rightMenuLeft = computed(() => store.state.rightMenu.left)
-    const rightMenuList = computed(() => store.state.rightMenu.list)
+    // const store = useStore()
+    const RightMenuStore = useRightMenuStoreWidthOut()
+    const rightMenuStatus = computed(() => RightMenuStore.status)
+    const rightMenuTop = computed(() => RightMenuStore.top)
+    const rightMenuLeft = computed(() => RightMenuStore.left)
+    const rightMenuList = computed(() => RightMenuStore.list)
+    // const rightMenuStatus = computed(() => store.state.rightMenu.status)
+    // const rightMenuTop = computed(() => store.state.rightMenu.top)
+    // const rightMenuLeft = computed(() => store.state.rightMenu.left)
+    // const rightMenuList = computed(() => store.state.rightMenu.list)
     return {
       rightMenuStatus,
       rightMenuTop,

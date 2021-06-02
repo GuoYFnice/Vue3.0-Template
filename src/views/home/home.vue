@@ -43,10 +43,12 @@
 <script>
 import menuList from '/@/config/menuList'
 import RightMenuDom from '/@/components/RightMenuDom'
-import { Layout } from 'ant-design-vue'
+import { Layout, Menu, Breadcrumb, Switch } from 'ant-design-vue'
+import { useRightMenuStoreWidthOut } from '/@/store/modules/RightMenuStore'
 import { reactive, toRefs } from 'vue'
 import { useRouter } from 'vue-router'
 const { Header, Footer, Sider, Content } = Layout
+const { Item, SubMenu } = Menu
 export default {
   components: {
     'a-layout': Layout,
@@ -54,6 +56,12 @@ export default {
     'a-layout-footer': Footer,
     'a-layout-sider': Sider,
     'a-layout-content': Content,
+    'a-menu': Menu,
+    'a-menu-item': Item,
+    'a-sub-menu': SubMenu,
+    'a-breadcrumb': Breadcrumb,
+    'a-breadcrumb-item': Breadcrumb.Item,
+    'a-switch': Switch,
     RightMenuDom,
   },
   data() {
@@ -77,14 +85,20 @@ export default {
     }
   },
   mounted() {
+    const RightMenuStore = useRightMenuStoreWidthOut()
     // 监听全局点击事件
     document.addEventListener('click', () => {
       // 隐藏右键菜单
-      this.$store.commit('updateRightMenuStatus', {
+      RightMenuStore.updateRightMenuStatus({
         status: 'none',
         left: '0px',
         top: '0px',
       })
+      // this.$store.commit('updateRightMenuStatus', {
+      //   status: 'none',
+      //   left: '0px',
+      //   top: '0px',
+      // })
     })
   },
   methods: {

@@ -33,8 +33,8 @@
 
 <script>
 import { ref, reactive } from 'vue'
-import handleLogin from '/@/composables/handleLogin.js'
 import { message, Form, Button } from 'ant-design-vue'
+import { useUserStoreWidthOut } from '/@/store/modules/UserStore'
 const { Item } = Form
 export default {
   components: {
@@ -43,28 +43,20 @@ export default {
     'a-button': Button,
   },
   setup() {
+    const UserStore = useUserStoreWidthOut()
     const form = reactive({
       username: '',
       password: '',
     })
-    const { result } = handleLogin(form)
+    const login = () => {
+      UserStore.login({ ...form })
+    }
     return {
       form,
-      result,
+      login,
     }
-  },
-  methods: {
-    login() {
-      if (this.result) {
-        message.success('login successful')
-        this.$router.push('/home')
-      } else {
-        message.warning('Incorrect username or password')
-      }
-    },
   },
 }
 </script>
 
-<style src='./index.module.scss'>
-</style>
+<style src="./index.module.scss"></style>

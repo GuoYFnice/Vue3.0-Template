@@ -1,6 +1,9 @@
-import store from '../store'
+// import store from '../store'
+// import store from '../store'
+import { useRightMenuStoreWidthOut } from '/@/store/modules/RightMenuStore'
 const rightClickMenu = (el, binding) => {
   el.oncontextmenu = function (e) {
+    const RightMenuStore = useRightMenuStoreWidthOut()
     const textArray = binding.value.text
     const handlerObj = binding.value.handle
     // 事件处理数组
@@ -25,12 +28,18 @@ const rightClickMenu = (el, binding) => {
     const oX = e.clientX
     const oY = e.clientY
     // 右键菜单出现后的位置
-    store.commit('updateRightMenuStatus', {
+    RightMenuStore.updateRightMenuStatus({
       status: 'block',
       left: oX + 'px',
       top: oY + 'px',
       list: menuList,
     })
+    // store.commit('updateRightMenuStatus', {
+    //   status: 'block',
+    //   left: oX + 'px',
+    //   top: oY + 'px',
+    //   list: menuList,
+    // })
     return false
   }
 }

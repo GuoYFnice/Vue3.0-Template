@@ -8,9 +8,14 @@
 </template>
 <script>
 import { ref, reactive, computed, toRefs } from 'vue'
+import { Tabs } from 'ant-design-vue'
 import handleDocumentEvent from '../../../composables/handleDocumentEvent'
 export default {
   name: 'cssPage',
+  components: {
+    'a-tabs': Tabs,
+    'a-tab-pane': Tabs.TabPane,
+  },
   setup() {
     const data = reactive({
       list: [

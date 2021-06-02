@@ -20,15 +20,6 @@ interface Options {
   onError?: (event: WebSocketEventMap['error']) => void
 }
 
-// interface Result {
-//   latestMessage?: WebSocketEventMap["message"];
-//   sendMessage?: WebSocket["send"];
-//   disconnect?: () => void;
-//   connect?: () => void;
-//   readyState: ReadyState;
-//   webSocketIns?: WebSocket;
-// }
-
 export default function useWebsocket(url: string, options: Options) {
   const {
     reconnectLimit = 3,
@@ -60,6 +51,9 @@ export default function useWebsocket(url: string, options: Options) {
     }
   }
 
+  /**
+   * 创建websocket
+   */
   const connectWs = () => {
     reconnectTimerOut && clearTimeout(reconnectTimerOut.value)
 
@@ -106,6 +100,7 @@ export default function useWebsocket(url: string, options: Options) {
       throw new Error('WebSocket disconnected')
     }
   }
+
   /**
    * 手动 connect
    */
@@ -113,6 +108,7 @@ export default function useWebsocket(url: string, options: Options) {
     reconnectTimesRef.value = 0
     connectWs()
   }
+
   /**
    * 断开websocket连接
    */
@@ -123,12 +119,19 @@ export default function useWebsocket(url: string, options: Options) {
     websocketRef.value?.close()
   }
 
+  /**
+   * mouted生命周期
+   */
   onMounted(() => {
     // 初始连接
     connect()
   })
 
+  /**
+   * unMouted生命周期
+   */
   onUnmounted(() => {
+    // 销毁
     disconnect()
   })
 

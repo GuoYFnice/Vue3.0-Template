@@ -2,7 +2,8 @@ import { createApp } from 'vue'
 // import Antd from 'ant-design-vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
+// import store from './store'
+import { setupStore } from '/@/store'
 import { setupGlobDirectives } from './directive'
 import { registerGlobComp } from '/@/components/registerGlobComp'
 import 'ant-design-vue/dist/antd.css'
@@ -17,7 +18,8 @@ import 'ant-design-vue/dist/antd.css'
     next()
   })
   const app = createApp(App)
+  setupStore(app)
   registerGlobComp(app)
   setupGlobDirectives(app)
-  app.use(router).use(store).mount('#app', true)
+  app.use(router).mount('#app', true)
 })()

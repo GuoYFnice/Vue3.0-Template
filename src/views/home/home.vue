@@ -1,8 +1,7 @@
 <template>
   <a-layout class="main" v-right-click="rightMenuObj">
     <a-layout-header class="header">
-      <h2 style="color: #000">vue3.0-taste</h2>
-      <a-switch v-model:checked="checked" />
+      <h2 style="color: #000" @click="logout">vue3.0-taste</h2>
     </a-layout-header>
     <a-layout>
       <a-layout-sider width="200">
@@ -43,8 +42,9 @@
 <script>
 import menuList from '/@/config/menuList'
 import RightMenuDom from '/@/components/RightMenuDom'
-import { Layout, Menu, Breadcrumb, Switch } from 'ant-design-vue'
+import { Layout, Menu, Breadcrumb, Button } from 'ant-design-vue'
 import { useRightMenuStoreWidthOut } from '/@/store/modules/RightMenuStore'
+import { useUserStoreWidthOut } from '/@/store/modules/UserStore'
 import { reactive, toRefs } from 'vue'
 import { useRouter } from 'vue-router'
 const { Header, Footer, Sider, Content } = Layout
@@ -61,8 +61,17 @@ export default {
     'a-sub-menu': SubMenu,
     'a-breadcrumb': Breadcrumb,
     'a-breadcrumb-item': Breadcrumb.Item,
-    'a-switch': Switch,
+    'a-button': Button,
     RightMenuDom,
+  },
+  setup() {
+    const UserStore = useUserStoreWidthOut()
+    const logout = () => {
+      UserStore.logout()
+    }
+    return {
+      logout,
+    }
   },
   data() {
     return {

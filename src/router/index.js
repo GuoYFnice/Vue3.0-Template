@@ -21,6 +21,9 @@ export default createRouter({
         {
           path: '/home/page1',
           component: () => import('../views/page/page1.vue'),
+          meta: {
+            ignoreAuth: true,
+          },
         },
         {
           path: '/home/page2',

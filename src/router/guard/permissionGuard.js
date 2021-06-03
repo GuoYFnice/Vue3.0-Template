@@ -3,7 +3,7 @@ import { useUserStoreWidthOut } from '/@/store/modules/UserStore'
 export function createPermissionGuard(router) {
   const userStore = useUserStoreWidthOut()
   router.beforeEach(async (to, from, next) => {
-    // 白名单的一个处理
+    // 白名单
     // if (whitePathList.includes(to.path)) {
     //   next()
     //   return

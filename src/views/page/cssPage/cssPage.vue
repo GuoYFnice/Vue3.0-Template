@@ -51,4 +51,5 @@ export default {
   },
 }
 </script>
-<style lang="scss" src="./style.scss" module />
+
+<style lang="scss" src="./index.module.scss"></style>

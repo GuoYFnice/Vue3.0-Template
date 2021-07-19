@@ -1,7 +1,8 @@
 <template>
-  <a-layout class="main" v-right-click="rightMenuObj">
-    <a-layout-header class="header">
-      <h2 style="color: #000" @click="logout">vue3.0-taste</h2>
+  <a-layout :class="$style.main" v-right-click="rightMenuObj">
+    <a-layout-header :class="$style.header">
+      <h2 :class="$style.title">vue3.0-taste</h2>
+      <span>logout</span>
     </a-layout-header>
     <a-layout>
       <a-layout-sider width="200">
@@ -118,11 +119,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.main {
-  height: 100vh;
-  .header {
-    background: #bdc3c7;
-  }
-}
-</style>
+<style lang="scss" src="./index.module.scss" module></style>

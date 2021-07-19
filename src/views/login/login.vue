@@ -1,5 +1,5 @@
 <template>
-  <div class="loginBox">
+  <div :class="$style.loginBox">
     <h1>LOGIN</h1>
     <a-form :model="form" @submit="login">
       <a-form-item>
@@ -20,7 +20,7 @@
       <a-form-item>
         <a-button
           type="primary"
-          class="loginBitton"
+          :class="$style.loginBitton"
           html-type="submit"
           :disabled="form.username === '' || form.password === ''"
         >
@@ -59,4 +59,4 @@ export default {
 }
 </script>
 
-<style src="./index.module.scss"></style>
+<style lang="scss" src="./index.module.scss" module></style>

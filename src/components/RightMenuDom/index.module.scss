@@ -1,46 +1,46 @@
 .RightMenuDom {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 166px;
-  height: auto;
-  background-color: rgb(242, 242, 242);
-  border: solid 1px #c2c1c2;
-  box-shadow: 0 10px 10px #c2c1c2;
-  display: none;
-  border-radius: 5px;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 166px;
+	height: auto;
+	background-color: rgb(242, 242, 242);
+	border: solid 1px #c2c1c2;
+	box-shadow: 0 10px 10px #c2c1c2;
+	display: none;
+	border-radius: 5px;
 
-  ul {
-    padding: 0;
-    margin: 0;
-    font-size: 15px;
+	ul {
+		padding: 0;
+		margin: 0;
+		font-size: 15px;
 
-    li {
-      list-style: none;
-      box-sizing: border-box;
-      padding: 6px 0;
-      border-bottom: 1px solid rgb(216, 216, 217);
+		li {
+			list-style: none;
+			box-sizing: border-box;
+			padding: 6px 0;
+			border-bottom: 1px solid rgb(216, 216, 217);
 
-      &:nth-child(1) {
-        padding-top: 2px;
-      }
+			&:nth-child(1) {
+				padding-top: 2px;
+			}
 
-      &:nth-last-child(1) {
-        border-bottom: none;
-      }
+			&:nth-last-child(1) {
+				border-bottom: none;
+			}
 
-      span {
-        display: block;
-        height: 20px;
-        line-height: 20px;
-        padding-left: 16px;
+			span {
+				display: block;
+				height: 20px;
+				line-height: 20px;
+				padding-left: 16px;
 
-        &:hover {
-          background-color: #0070f5;
-          cursor: pointer;
-          color: #ffffff;
-        }
-      }
-    }
-  }
+				&:hover {
+					background-color: #0070f5;
+					cursor: pointer;
+					color: #ffffff;
+				}
+			}
+		}
+	}
 }

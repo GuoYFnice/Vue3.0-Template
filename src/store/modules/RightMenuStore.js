@@ -2,27 +2,27 @@ import { defineStore } from 'pinia'
 import { store } from '/@/store'
 
 export const useRightMenuStore = defineStore({
-  id: 'ringht-menu',
-  state: () => ({
-    status: 'none',
-    top: '0px',
-    left: '0px',
-    list: [],
-  }),
-  getters: {},
-  actions: {
-    updateRightMenuStatus(menuObj) {
-      this.status = menuObj.status
-      this.top = menuObj.top
-      this.left = menuObj.left
-      this.list = menuObj.list
-    },
-  },
+	id: 'ringht-menu',
+	state: () => ({
+		status: 'none',
+		top: '0px',
+		left: '0px',
+		list: [],
+	}),
+	getters: {},
+	actions: {
+		updateRightMenuStatus(menuObj) {
+			this.status = menuObj.status
+			this.top = menuObj.top
+			this.left = menuObj.left
+			this.list = menuObj.list
+		},
+	},
 })
 
 // Need to be used outside the setup
 export function useRightMenuStoreWidthOut() {
-  return useRightMenuStore(store)
+	return useRightMenuStore(store)
 }
 
 // export default RightMenuStore = {

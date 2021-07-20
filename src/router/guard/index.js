@@ -5,6 +5,6 @@ import { createPermissionGuard } from './permissionGuard'
 import { createScrollGuard } from './scrollGuard'
 
 export function setupRouterGuard() {
-  createPermissionGuard(router)
-  createScrollGuard(router)
+	createPermissionGuard(router)
+	createScrollGuard(router)
 }

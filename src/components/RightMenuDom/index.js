@@ -1,2 +1,2 @@
-import RightMenuDom from "./RightMenuDom.vue"
+import RightMenuDom from './RightMenuDom.vue'
 export default RightMenuDom

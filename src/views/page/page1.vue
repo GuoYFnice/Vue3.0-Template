@@ -5,9 +5,9 @@
 </template>
 
 <script>
-import { ref, reactive, toRefs } from 'vue'
 import Loading from '../../components/Loading.vue'
 import handleLoading from '../../composables/handleLoading.js'
+
 export default {
 	components: {
 		Loading,
@@ -21,10 +21,9 @@ export default {
 		}
 	},
 	mounted() {
-		let _this = this
 		this.startLoading()
 		setTimeout(() => {
-			_this.endLoading()
+			this.endLoading()
 		}, 2000)
 	},
 }

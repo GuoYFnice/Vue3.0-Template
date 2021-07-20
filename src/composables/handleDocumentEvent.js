@@ -1,5 +1,6 @@
 // 对DocumentEvent进行处理
-import { ref, onMounted, onUnmounted, toRefs, watch, toRef } from 'vue'
+import { onMounted, onUnmounted, toRefs, watch } from 'vue'
+
 export default function handleDocumentEvent(
 	eventName,
 	// 事件名称

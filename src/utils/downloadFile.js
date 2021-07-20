@@ -2,7 +2,7 @@
 下载文件流方法
 */
 export function downloadFile(data, name, fileType, showTime) {
-	let fileList = {
+	const fileList = {
 		word: 'application/msword',
 		zip: 'application/zip',
 		excel: 'application/vnd.ms-excel',

@@ -13,7 +13,7 @@ export function formatTime(fmt, date) {
 		'S+': date.getSeconds().toString(),
 	}
 	for (const k in opt) {
-		ret = new RegExp('(' + k + ')').exec(fmt)
+		ret = new RegExp(`(${k})`).exec(fmt)
 		if (ret) {
 			fmt = fmt.replace(
 				ret[1],

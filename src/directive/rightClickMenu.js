@@ -1,6 +1,8 @@
 // import store from '../store'
 // import store from '../store'
+/* eslint-disable */
 import { useRightMenuStoreWidthOut } from '/@/store/modules/RightMenuStore'
+
 const rightClickMenu = (el, binding) => {
 	el.oncontextmenu = function (e) {
 		const RightMenuStore = useRightMenuStoreWidthOut()
@@ -30,8 +32,8 @@ const rightClickMenu = (el, binding) => {
 		// 右键菜单出现后的位置
 		RightMenuStore.updateRightMenuStatus({
 			status: 'block',
-			left: oX + 'px',
-			top: oY + 'px',
+			left: `${oX}px`,
+			top: `${oY}px`,
 			list: menuList,
 		})
 		// store.commit('updateRightMenuStatus', {

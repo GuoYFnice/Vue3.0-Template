@@ -1,4 +1,5 @@
 import { ref } from 'vue'
+
 export default function handleLoading() {
 	const loading = ref(false)
 	const startLoading = () => {

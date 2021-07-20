@@ -3,7 +3,7 @@ const isHash = href => {
 }
 
 export function createScrollGuard(router) {
-	const body = document.body
+	const { body } = document
 
 	router.afterEach(async to => {
 		// 路由跳转后滚动到头部

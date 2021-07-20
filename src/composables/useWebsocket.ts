@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { ref, onMounted, onUnmounted } from 'vue'
 /**
  *  websocket
@@ -63,12 +64,12 @@ export default function useWebsocket(url: string, options: Options) {
 
 		try {
 			websocketRef.value = new WebSocket(url)
-			websocketRef.value.onerror = event => {
+			websocketRef.value.onerror = (event: Event) => {
 				reconnect()
 				onError && onError(event)
 				readyState.value = websocketRef.value?.readyState || ReadyState.Closed
 			}
-			websocketRef.value.onopen = event => {
+			websocketRef.value.onopen = (event: Event) => {
 				onOpen && onOpen(event)
 				reconnectTimesRef.value = 0
 				readyState.value = websocketRef.value?.readyState || ReadyState.Closed
@@ -79,7 +80,7 @@ export default function useWebsocket(url: string, options: Options) {
 				onMessage && onMessage(message)
 				latestMessage.value = message
 			}
-			websocketRef.value.onclose = event => {
+			websocketRef.value.onclose = (event: CloseEvent) => {
 				reconnect()
 				onClose && onClose(event)
 				readyState.value = websocketRef.value?.readyState || ReadyState.Closed

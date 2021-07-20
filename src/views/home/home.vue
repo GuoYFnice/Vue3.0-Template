@@ -8,7 +8,7 @@
 			<a-layout-sider width="200">
 				<a-menu mode="inline" :style="{ height: '100%', borderRight: 0 }">
 					<a-sub-menu v-for="item in menus" :key="item.name">
-						<template v-slot:title>
+						<template #title>
 							<span>{{ item.name }}</span>
 						</template>
 						<a-menu-item
@@ -32,7 +32,7 @@
 						minHeight: '280px',
 					}"
 				>
-					<router-view></router-view>
+					<router-view />
 				</a-layout-content>
 			</a-layout>
 		</a-layout>
@@ -43,18 +43,16 @@
 <script>
 import menuList from '/@/config/menuList'
 import RightMenuDom from '/@/components/RightMenuDom'
-import { Layout, Menu, Breadcrumb, Button } from 'ant-design-vue'
+import { Layout, Menu, Breadcrumb } from 'ant-design-vue'
 import { useRightMenuStoreWidthOut } from '/@/store/modules/RightMenuStore'
 import { useUserStoreWidthOut } from '/@/store/modules/UserStore'
-import { reactive, toRefs } from 'vue'
-import { useRouter } from 'vue-router'
-const { Header, Footer, Sider, Content } = Layout
+
+const { Header, Sider, Content } = Layout
 const { Item, SubMenu } = Menu
 export default {
 	components: {
 		'a-layout': Layout,
 		'a-layout-header': Header,
-		'a-layout-footer': Footer,
 		'a-layout-sider': Sider,
 		'a-layout-content': Content,
 		'a-menu': Menu,
@@ -62,7 +60,6 @@ export default {
 		'a-sub-menu': SubMenu,
 		'a-breadcrumb': Breadcrumb,
 		'a-breadcrumb-item': Breadcrumb.Item,
-		'a-button': Button,
 		RightMenuDom,
 	},
 	setup() {

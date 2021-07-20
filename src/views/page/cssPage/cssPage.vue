@@ -1,17 +1,17 @@
 <template>
 	<div>
 		<a-tabs @change="callback">
-			<a-tab-pane v-for="item in data.list" :key="item.id" :tab="item.text">
-			</a-tab-pane>
+			<a-tab-pane v-for="item in data.list" :key="item.id" :tab="item.text" />
 		</a-tabs>
 	</div>
 </template>
 <script>
-import { ref, reactive, computed, toRefs } from 'vue'
+import { reactive } from 'vue'
 import { Tabs } from 'ant-design-vue'
 import handleDocumentEvent from '../../../composables/handleDocumentEvent'
+
 export default {
-	name: 'cssPage',
+	name: 'CssPage',
 	components: {
 		'a-tabs': Tabs,
 		'a-tab-pane': Tabs.TabPane,

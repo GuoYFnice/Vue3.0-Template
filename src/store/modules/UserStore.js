@@ -52,7 +52,7 @@ export const useUserStore = defineStore({
 				// 在这里可以进行登录接口的调用以及人员信息接口的调用
 				// 这边先写一个假的
 				if (params.username === 'admin' && params.password === '123456') {
-					let userInfo = {
+					const userInfo = {
 						id: 'admin',
 						username: 'admin',
 						password: '123456',
@@ -62,7 +62,7 @@ export const useUserStore = defineStore({
 					this.setUserInfo(JSON.stringify(userInfo))
 					router.push('/home')
 				} else if (params.username === 'test' && params.password === '123456') {
-					let userInfo = {
+					const userInfo = {
 						id: 'test',
 						username: 'test',
 						password: '123456',

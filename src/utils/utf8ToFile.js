@@ -5,5 +5,5 @@ export function utf8ToFile(dataURI) {
 		array.push(binary.charCodeAt(i))
 	}
 	const newBlob = new Blob([new Uint8Array(array)], { type: 'image/jpeg' })
-	return new File([newBlob], new Date() + '.jpg')
+	return new File([newBlob], `${new Date()}.jpg`)
 }

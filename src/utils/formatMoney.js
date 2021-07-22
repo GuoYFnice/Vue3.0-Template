@@ -1,27 +1,15 @@
 /*
 人民币转大写
 */
-/* eslint-disable */
 export function formatMoney(money) {
 	// 汉字的数字
-	const cnNums = new Array(
-		'零',
-		'壹',
-		'贰',
-		'叁',
-		'肆',
-		'伍',
-		'陆',
-		'柒',
-		'捌',
-		'玖'
-	)
+	const cnNums = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖']
 	// 基本单位
-	const cnIntRadice = new Array('', '拾', '佰', '仟')
+	const cnIntRadice = ['', '拾', '佰', '仟']
 	// 对应整数部分扩展单位
-	const cnIntUnits = new Array('', '万', '亿', '兆')
+	const cnIntUnits = ['', '万', '亿', '兆']
 	// 对应小数部分单位
-	const cnDecUnits = new Array('角', '分', '毫', '厘')
+	const cnDecUnits = ['角', '分', '毫', '厘']
 	// 整数金额时后面跟的字符
 	const cnInteger = '整'
 	// 整型完以后的单位

@@ -1,6 +1,3 @@
-// import store from '../store'
-// import store from '../store'
-/* eslint-disable */
 import { useRightMenuStoreWidthOut } from '/@/store/modules/RightMenuStore'
 
 const rightClickMenu = (el, binding) => {

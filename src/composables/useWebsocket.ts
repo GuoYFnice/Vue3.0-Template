@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { ref, onMounted, onUnmounted } from 'vue'
 /**
  *  websocket
@@ -44,7 +43,7 @@ export default function useWebsocket(url: string, options: Options) {
 			reconnectTimesRef.value < reconnectLimit &&
 			readyState.value !== ReadyState.Open
 		) {
-			reconnectTimerOut && clearTimeout(reconnectTimerOut.value)
+			reconnectTimerOut.value && clearTimeout(reconnectTimerOut.value)
 			reconnectTimerOut.value = setTimeout(() => {
 				connectWs()
 				reconnectTimesRef.value++
@@ -56,7 +55,7 @@ export default function useWebsocket(url: string, options: Options) {
 	 * 创建websocket
 	 */
 	const connectWs = () => {
-		reconnectTimerOut && clearTimeout(reconnectTimerOut.value)
+		reconnectTimerOut.value && clearTimeout(reconnectTimerOut.value)
 
 		if (websocketRef.value) {
 			websocketRef.value.close()
@@ -114,7 +113,7 @@ export default function useWebsocket(url: string, options: Options) {
 	 * 断开websocket连接
 	 */
 	const disconnect = () => {
-		reconnectTimerOut && clearTimeout(reconnectTimerOut.value)
+		reconnectTimerOut.value && clearTimeout(reconnectTimerOut.value)
 
 		reconnectTimerOut.value = reconnectLimit
 		websocketRef.value?.close()

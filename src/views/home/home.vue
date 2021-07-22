@@ -1,7 +1,7 @@
 <template>
 	<a-layout :class="$style.main" v-right-click="rightMenuObj">
 		<a-layout-header :class="$style.header">
-			<h2 :class="$style.title">vue3.0-taste</h2>
+			<h2 :class="$style.title">Vue3.0-Template</h2>
 			<span>logout</span>
 		</a-layout-header>
 		<a-layout>

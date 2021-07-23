@@ -5,7 +5,7 @@
 		<Loading :loading="loading" :absolute="absolute" :tip="tip" />
 		<a-button @click="openFnFullLoading"> 全屏 Loading(指令方法) </a-button>
 		<a-button @click="openFnWrapLoading"> 局部 Loading(指令方法)</a-button>
-		<div ref="wrapEl" class="box"> 这是局部 </div>
+		<div ref="wrapEl" :class="$style.box"> 这是局部 </div>
 	</div>
 </template>
 
@@ -74,11 +74,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.box {
-	width: 500px;
-	height: 500px;
-	border: 1px solid #000;
-	position: relative;
-}
-</style>
+<style lang="scss" src="./index.module.scss" module></style>

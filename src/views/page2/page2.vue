@@ -8,7 +8,7 @@
 <script>
 import { reactive } from 'vue'
 import { Tabs } from 'ant-design-vue'
-import handleDocumentEvent from '../../../composables/handleDocumentEvent'
+import handleDocumentEvent from '/@/composables/handleDocumentEvent'
 
 export default {
 	name: 'CssPage',
@@ -52,4 +52,4 @@ export default {
 }
 </script>
 
-<style lang="scss" src="./index.module.scss"></style>
+<style lang="scss" src="./index.module.scss" module></style>

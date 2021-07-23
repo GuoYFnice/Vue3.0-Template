@@ -2,6 +2,9 @@
 	height: 100vh;
 	.header {
 		background: $header-bg-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 		.title {
 			color: $white;
 		}

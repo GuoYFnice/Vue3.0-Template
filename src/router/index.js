@@ -8,7 +8,7 @@ export default createRouter({
 	routes: [
 		{
 			path: '/login',
-			component: () => import('../views/login/login.vue'),
+			component: () => import('../views/login'),
 		},
 		{
 			path: '/',
@@ -16,22 +16,18 @@ export default createRouter({
 		},
 		{
 			path: '/home',
-			component: () => import('../views/home/home.vue'),
+			component: () => import('../views/home'),
 			children: [
 				{
-					path: '/home/page1',
-					component: () => import('../views/page/page1.vue'),
+					path: '/home/page',
+					component: () => import('../views/page'),
 					meta: {
 						ignoreAuth: true,
 					},
 				},
 				{
 					path: '/home/page2',
-					component: () => import('../views/page/page2.vue'),
-				},
-				{
-					path: '/home/cssPage',
-					component: () => import('../views/page/cssPage/index'),
+					component: () => import('../views/page2'),
 				},
 			],
 		},

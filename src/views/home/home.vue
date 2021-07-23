@@ -1,9 +1,6 @@
 <template>
 	<a-layout :class="$style.main" v-right-click="rightMenuObj">
-		<a-layout-header :class="$style.header">
-			<h2 :class="$style.title">Vue3.0-Template</h2>
-			<span>logout</span>
-		</a-layout-header>
+		<layout-header />
 		<a-layout>
 			<a-layout-sider width="200">
 				<a-menu mode="inline" :style="{ height: '100%', borderRight: 0 }">
@@ -44,15 +41,15 @@
 import menuList from '/@/config/menuList'
 import RightMenuDom from '/@/components/RightMenuDom'
 import { Layout, Menu, Breadcrumb } from 'ant-design-vue'
+import LayoutHeader from './components/LayoutHeader.vue'
 import { useRightMenuStoreWidthOut } from '/@/store/modules/RightMenuStore'
-import { useUserStoreWidthOut } from '/@/store/modules/UserStore'
 
-const { Header, Sider, Content } = Layout
+const { Sider, Content } = Layout
 const { Item, SubMenu } = Menu
 export default {
 	components: {
 		'a-layout': Layout,
-		'a-layout-header': Header,
+		'layout-header': LayoutHeader,
 		'a-layout-sider': Sider,
 		'a-layout-content': Content,
 		'a-menu': Menu,
@@ -61,15 +58,6 @@ export default {
 		'a-breadcrumb': Breadcrumb,
 		'a-breadcrumb-item': Breadcrumb.Item,
 		RightMenuDom,
-	},
-	setup() {
-		const UserStore = useUserStoreWidthOut()
-		const logout = () => {
-			UserStore.logout()
-		}
-		return {
-			logout,
-		}
 	},
 	data() {
 		return {

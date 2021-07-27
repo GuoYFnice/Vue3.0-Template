@@ -1,56 +1,33 @@
 <template>
-	<section class="full-loading" :class="{ absolute }" v-show="loading">
-		<Spin v-bind="$attrs" :tip="tip" :size="size" :spinning="loading" />
-	</section>
+	<a-layout :class="$style.contentBox">
+		<a-breadcrumb :class="$style.breadcrumb">
+			<a-breadcrumb-item>Home</a-breadcrumb-item>
+		</a-breadcrumb>
+		<a-layout-content :class="$style.content">
+			<router-view />
+		</a-layout-content>
+	</a-layout>
 </template>
 <script>
 import { defineComponent } from 'vue'
-import { Spin } from 'ant-design-vue'
+import { Layout, Breadcrumb } from 'ant-design-vue'
+
+const { Content } = Layout
 
 export default defineComponent({
-	name: 'LayoutContent',
-	components: { Spin },
+	name: 'LayoutMenus',
+	components: {
+		'a-layout-content': Content,
+		'a-breadcrumb': Breadcrumb,
+		'a-breadcrumb-item': Breadcrumb.Item,
+	},
 	props: {
-		tip: {
+		type: {
 			type: String,
 			default: '',
 		},
-		size: {
-			type: String,
-			default: 'large',
-			validator: v => {
-				return ['default', 'small', 'large'].includes(v)
-			},
-		},
-		absolute: {
-			type: Boolean,
-			default: false,
-		},
-		loading: {
-			type: Boolean,
-			default: false,
-		},
 	},
+	setup() {},
 })
 </script>
-<style lang="scss">
-.full-loading {
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 200;
-	display: flex;
-	width: 100%;
-	height: 100%;
-	justify-content: center;
-	align-items: center;
-	background-color: rgba(240, 242, 245, 0.4);
-
-	&.absolute {
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: 300;
-	}
-}
-</style>
+<style lang="scss" src="../index.module.scss" module></style>

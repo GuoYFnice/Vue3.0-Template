@@ -1,12 +1,54 @@
 .main {
 	height: 100vh;
-	.header {
-		background: $header-bg-color;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-		.title {
-			color: $white;
-		}
+}
+.header {
+	background: $header-bg-color;
+	display: flex;
+	align-items: center;
+	.headerTitle {
+		color: $white;
+    margin-right: 120px;
+	}
+	.headerMenus {
+		flex: 1;
+	}
+	.headerInfo {
+		position: absolute;
+		color: $white;
+		right: 0;
+		width: 120px;
+    span {
+      margin-left: 20px;
+    }
+	}
+}
+.titleBox {
+	height: 64px;
+	line-height: 64px;
+	text-align: center;
+	background: $header-bg-color;
+	h2 {
+		color: $white;
+	}
+}
+.menus {
+
+}
+.contentBox {
+	padding: 0 24px 24px;
+  height: 100%;
+	width: 100%;
+	background: $bg-color;
+	.breadcrumb {
+		margin: 16px 0;
+	}
+	.content {
+		background: $white;
+		padding: 24px;
+		margin: 0;
+		min-height: 280px;
+		min-width: 500px;
+		height: calc(100% - 56px);
+		overflow: auto;
 	}
 }

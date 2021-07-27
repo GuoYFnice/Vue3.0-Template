@@ -1,56 +1,52 @@
 <template>
-	<section class="full-loading" :class="{ absolute }" v-show="loading">
-		<Spin v-bind="$attrs" :tip="tip" :size="size" :spinning="loading" />
-	</section>
+	<a-menu :mode="type" :class="$style.menus">
+		<a-sub-menu v-for="item in menus" :key="item.name">
+			<template #title>
+				<span>{{ item.name }}</span>
+			</template>
+			<a-menu-item
+				v-for="(i, index) in item.children"
+				:key="index"
+				@click="() => handleMenuChange(i)"
+				>{{ i.name }}</a-menu-item
+			>
+		</a-sub-menu>
+	</a-menu>
 </template>
 <script>
-import { defineComponent } from 'vue'
-import { Spin } from 'ant-design-vue'
+import { defineComponent, reactive } from 'vue'
+import { useRouter } from 'vue-router'
+import menuList from '/@/config/menuList'
+import { Menu } from 'ant-design-vue'
+
+const { Item, SubMenu } = Menu
 
 export default defineComponent({
 	name: 'LayoutMenus',
-	components: { Spin },
+	components: {
+		'a-menu': Menu,
+		'a-menu-item': Item,
+		'a-sub-menu': SubMenu,
+	},
 	props: {
-		tip: {
+		type: {
 			type: String,
-			default: '',
+			default: 'inline',
 		},
-		size: {
-			type: String,
-			default: 'large',
-			validator: v => {
-				return ['default', 'small', 'large'].includes(v)
-			},
-		},
-		absolute: {
-			type: Boolean,
-			default: false,
-		},
-		loading: {
-			type: Boolean,
-			default: false,
-		},
+	},
+	setup() {
+		const menus = reactive({ ...menuList })
+		const router = useRouter()
+		const handleMenuChange = item => {
+			router.push({
+				path: item.path,
+			})
+		}
+		return {
+			menus,
+			handleMenuChange,
+		}
 	},
 })
 </script>
-<style lang="scss">
-.full-loading {
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 200;
-	display: flex;
-	width: 100%;
-	height: 100%;
-	justify-content: center;
-	align-items: center;
-	background-color: rgba(240, 242, 245, 0.4);
-
-	&.absolute {
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: 300;
-	}
-}
-</style>
+<style lang="scss" src="../index.module.scss" module></style>

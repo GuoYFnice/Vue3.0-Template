@@ -1,56 +1,19 @@
 <template>
-	<section class="full-loading" :class="{ absolute }" v-show="loading">
-		<Spin v-bind="$attrs" :tip="tip" :size="size" :spinning="loading" />
-	</section>
+	<a-layout-footer style="text-align: center">
+		Vue3.0-Template ©2021 Created by GuoYFnice
+	</a-layout-footer>
 </template>
 <script>
 import { defineComponent } from 'vue'
-import { Spin } from 'ant-design-vue'
+import { Layout } from 'ant-design-vue'
+
+const { Footer } = Layout
 
 export default defineComponent({
 	name: 'LayoutFooter',
-	components: { Spin },
-	props: {
-		tip: {
-			type: String,
-			default: '',
-		},
-		size: {
-			type: String,
-			default: 'large',
-			validator: v => {
-				return ['default', 'small', 'large'].includes(v)
-			},
-		},
-		absolute: {
-			type: Boolean,
-			default: false,
-		},
-		loading: {
-			type: Boolean,
-			default: false,
-		},
+	components: {
+		'a-layout-footer': Footer,
 	},
 })
 </script>
-<style lang="scss">
-.full-loading {
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 200;
-	display: flex;
-	width: 100%;
-	height: 100%;
-	justify-content: center;
-	align-items: center;
-	background-color: rgba(240, 242, 245, 0.4);
-
-	&.absolute {
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: 300;
-	}
-}
-</style>
+<style lang="scss" src="../index.module.scss" module></style>

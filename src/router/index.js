@@ -29,6 +29,10 @@ export default createRouter({
 					path: '/home/page2',
 					component: () => import('../views/page2'),
 				},
+				{
+					path: '/errPage',
+					component: () => import('../views/errPage'),
+				},
 			],
 		},
 	],

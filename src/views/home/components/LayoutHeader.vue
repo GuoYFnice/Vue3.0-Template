@@ -5,13 +5,17 @@
 		>
 		<slot :class="$style.headerMenus" name="menus"></slot>
 		<div :class="$style.headerInfo">
-			<span @click="logout">logout</span>
-			<span @click="handleSeting">set</span>
+			<span @click="logout">
+				<a-badge :count="1"><a-avatar icon="user" /></a-badge>
+			</span>
+			<span @click="handleSeting">
+				<i class="iconfont icon-setting-fill"></i>
+			</span>
 		</div>
 	</a-layout-header>
 </template>
 <script>
-import { Layout } from 'ant-design-vue'
+import { Layout, Avatar, Badge } from 'ant-design-vue'
 import { defineComponent } from 'vue'
 import { useUserStoreWidthOut } from '/@/store/modules/UserStore'
 
@@ -20,6 +24,8 @@ export default defineComponent({
 	name: 'LayoutHeader',
 	components: {
 		'a-layout-header': Header,
+		'a-avatar': Avatar,
+		'a-badge': Badge,
 	},
 	props: {
 		layoutType: {

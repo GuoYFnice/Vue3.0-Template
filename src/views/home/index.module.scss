@@ -7,7 +7,7 @@
 	align-items: center;
 	.headerTitle {
 		color: $white;
-    margin-right: 120px;
+		margin-right: 120px;
 	}
 	.headerMenus {
 		flex: 1;
@@ -17,26 +17,25 @@
 		color: $white;
 		right: 0;
 		width: 120px;
-    span {
-      margin-left: 20px;
-    }
+    display: flex;
+    justify-content: space-around;
 	}
 }
 .titleBox {
 	height: 64px;
 	line-height: 64px;
 	text-align: center;
-	background: $header-bg-color;
-	h2 {
-		color: $white;
+	background: $white;
+	h2,
+	h3 {
+    color: $header-bg-color;
 	}
 }
 .menus {
-
 }
 .contentBox {
 	padding: 0 24px 24px;
-  height: 100%;
+	height: 100%;
 	width: 100%;
 	background: $bg-color;
 	.breadcrumb {

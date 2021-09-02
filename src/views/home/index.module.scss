@@ -51,3 +51,12 @@
 		overflow: auto;
 	}
 }
+.drawerBox {
+  display: flex;
+  .left {
+    width: 50px;
+  }
+  .right {
+    flex: 1;
+  }
+}

@@ -1,33 +1,36 @@
 <template>
-	<div :class="$style.loginBox">
-		<h1>LOGIN</h1>
-		<a-form :model="form" @submit="login">
-			<a-form-item>
-				<input
-					v-model="form.username"
-					pattern="(^[a-zA-Z]{1}[a-zA-Z\s]{0,20}[a-zA-Z]{1}$)"
-					placeholder="Username"
-				/>
-			</a-form-item>
-			<a-form-item>
-				<input
-					v-model="form.password"
-					pattern="^\d{1,}$"
-					type="password"
-					placeholder="Password"
-				/>
-			</a-form-item>
-			<a-form-item>
-				<a-button
-					type="primary"
-					:class="$style.loginBitton"
-					html-type="submit"
-					:disabled="form.username === '' || form.password === ''"
-				>
-					Log in
-				</a-button>
-			</a-form-item>
-		</a-form>
+	<div :class="$style.box">
+		<h1 :class="$style.title">Vue3.0-Template</h1>
+		<div :class="$style.loginBox">
+			<h1>LOGIN</h1>
+			<a-form :model="form" @submit="login">
+				<a-form-item>
+					<input
+						v-model="form.username"
+						pattern="(^[a-zA-Z]{1}[a-zA-Z\s]{0,20}[a-zA-Z]{1}$)"
+						placeholder="Username"
+					/>
+				</a-form-item>
+				<a-form-item>
+					<input
+						v-model="form.password"
+						pattern="^\d{1,}$"
+						type="password"
+						placeholder="Password"
+					/>
+				</a-form-item>
+				<a-form-item>
+					<a-button
+						type="primary"
+						:class="$style.loginBitton"
+						html-type="submit"
+						:disabled="form.username === '' || form.password === ''"
+					>
+						Log in
+					</a-button>
+				</a-form-item>
+			</a-form>
+		</div>
 	</div>
 </template>
 

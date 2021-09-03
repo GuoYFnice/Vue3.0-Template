@@ -14,6 +14,6 @@ import 'ant-design-vue/dist/antd.css'
 	setupGlobDirectives(app)
 	app.use(router).mount('#app', true)
 
-	const htmlRoot = document.getElementById('htmlRoot')
+	const htmlRoot = document.getElementById('app')
 	htmlRoot?.setAttribute('data-theme', 'light')
 })()

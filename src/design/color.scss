@@ -1,8 +1,16 @@
+[data-theme='light'] {
+	--bg-color: #394664;
+}
+
+[data-theme='dark'] {
+	--bg-color: #000;
+}
+
 $white: #fff;
-$header-bg-color: #394664;
 $bg-color: #e4e9ed;
 $content-bg: #f4f7f9;
 $success: #3c9;
 $error: #f66;
 $border-color-dark: #b6b7b9;
 $border-color-shallow-dark: #cececd;
+$header-bg-color: var(--bg-color);

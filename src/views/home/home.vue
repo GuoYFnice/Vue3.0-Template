@@ -12,13 +12,6 @@ export default {
 		Layout,
 		LayDrawer,
 	},
-	setup() {
-		/**
-		 * 1左侧菜单模式
-		 * 2顶部菜单模式
-		 * 3顶部-菜单混合模式
-		 */
-	},
 }
 </script>
 

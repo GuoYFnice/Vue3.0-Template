@@ -22,11 +22,11 @@
 			<span :class="$style.left">主题</span>
 			<a-radio-group
 				:class="$style.right"
-				v-model="layoutType"
-				@change="handleLayoutChange"
+				v-model="themeType"
+				@change="handleThemeTypeChange"
 			>
-				<a-radio-button :value="1"> 黑暗模式 </a-radio-button>
-				<a-radio-button :value="2"> 白天模式 </a-radio-button>
+				<a-radio-button :value="0"> 黑暗模式 </a-radio-button>
+				<a-radio-button :value="1"> 白天模式 </a-radio-button>
 			</a-radio-group>
 		</div>
 	</a-drawer>
@@ -51,6 +51,7 @@ export default defineComponent({
 		 */
 		const useLayoutStore = useLayoutStoreWidthOut()
 		const layoutType = computed(() => useLayoutStore.layoutType)
+		const themeType = computed(() => useLayoutStore.themeType)
 		const visible = computed(() => useLayoutStore.drawerVisible)
 		const handleDrawerClose = () => {
 			useLayoutStore.setdrawerVisible(false)
@@ -58,11 +59,16 @@ export default defineComponent({
 		const handleLayoutChange = e => {
 			useLayoutStore.setlayoutType(e.target.value)
 		}
+		const handleThemeTypeChange = e => {
+			useLayoutStore.setthemeType(e.target.value)
+		}
 		return {
 			layoutType,
+			themeType,
 			visible,
 			handleDrawerClose,
 			handleLayoutChange,
+			handleThemeTypeChange,
 		}
 	},
 })
